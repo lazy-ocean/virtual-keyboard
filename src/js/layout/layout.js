@@ -1,0 +1,85 @@
+import options from "./lang/options";
+
+const KeyboardLayout = [
+  [
+    "KeyBacktick",
+    "Key1",
+    "Key2",
+    "Key3",
+    "Key4",
+    "Key5",
+    "Key6",
+    "Key7",
+    "Key8",
+    "Key9",
+    "Key0",
+    "KeyDash",
+    "KeyPlus",
+    "Backspace",
+  ],
+  [
+    "Tab",
+    "KeyQ",
+    "KeyW",
+    "KeyE",
+    "KeyR",
+    "KeyT",
+    "KeyY",
+    "KeyU",
+    "KeyI",
+    "KeyO",
+    "KeyP",
+    "KeyLSqBracket",
+    "KeyRSqBracket",
+    "Enter",
+  ],
+  [
+    "CapsLock",
+    "KeyA",
+    "KeyS",
+    "KeyD",
+    "KeyF",
+    "KeyG",
+    "KeyH",
+    "KeyJ",
+    "KeyK",
+    "KeyL",
+    "KeyColon",
+    "KeyApostrophe",
+    "KeyBackSlash",
+  ],
+  [
+    "LShift",
+    "KeyTilda",
+    "KeyZ",
+    "KeyX",
+    "KeyC",
+    "KeyV",
+    "KeyB",
+    "KeyN",
+    "KeyM",
+    "KeyComma",
+    "KeyDot",
+    "KeySlash",
+    "TopArrow",
+    "RShift",
+  ],
+  [
+    "Ctrl",
+    "LOption",
+    "LCommand",
+    "Space",
+    "RCommand",
+    "ROption",
+    "LeftArrow",
+    "DownArrow",
+    "RightArrow",
+  ],
+];
+
+const generateLayout = (lang) => {
+  const keyMap = options[lang];
+  return KeyboardLayout.map((line) => line.map((key) => keyMap[key]));
+};
+
+export default generateLayout;
