@@ -68,11 +68,13 @@ const english = {
     main: "←",
     secondary: "",
     role: "functional",
+    long: true,
   },
   Tab: {
     main: "Tab",
     secondary: "",
     role: "functional",
+    long: true,
   },
   KeyQ: {
     main: "q",
@@ -138,11 +140,13 @@ const english = {
     main: "⏎",
     secondary: "",
     role: "functional",
+    long: true,
   },
   CapsLock: {
     main: "CapsLock",
     secondary: "",
     role: "functional",
+    long: true,
   },
   KeyA: {
     main: "a",
@@ -208,6 +212,7 @@ const english = {
     main: "Shift",
     secondary: "",
     role: "functional",
+    long: true,
   },
   KeyTilda: {
     main: "\\",
@@ -273,6 +278,7 @@ const english = {
     main: "Shift",
     secondary: "",
     role: "functional",
+    long: true,
   },
   Ctrl: {
     main: "Ctrl",
@@ -293,6 +299,7 @@ const english = {
     main: "&nbsp;",
     secondary: "",
     role: "symbol",
+    long: true,
   },
   RCommand: {
     main: "Command",
