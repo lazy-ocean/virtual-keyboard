@@ -1,89 +1,89 @@
 const english = {
-  KeyBacktick: {
+  Backquote: {
     main: "`",
     secondary: "~",
     role: "symbol",
     code: "Backquote",
     classname: ["double"],
   },
-  Key1: {
+  Digit1: {
     main: "1",
     secondary: "!",
     role: "number",
     code: "Digit1",
     classname: ["double"],
   },
-  Key2: {
+  Digit2: {
     main: "2",
     secondary: "@",
     role: "number",
     code: "Digit2",
     classname: ["double"],
   },
-  Key3: {
+  Digit3: {
     main: "3",
     secondary: "#",
     role: "number",
     code: "Digit3",
     classname: ["double"],
   },
-  Key4: {
+  Digit4: {
     main: "4",
     secondary: "$",
     role: "number",
     code: "Digit4",
     classname: ["double"],
   },
-  Key5: {
+  Digit5: {
     main: "5",
     secondary: "%",
     role: "number",
     code: "Digit5",
     classname: ["double"],
   },
-  Key6: {
+  Digit6: {
     main: "6",
     secondary: "^",
     role: "number",
     code: "Digit6",
     classname: ["double"],
   },
-  Key7: {
+  Digit7: {
     main: "7",
     secondary: "&",
     role: "number",
     code: "Digit7",
     classname: ["double"],
   },
-  Key8: {
+  Digit8: {
     main: "8",
     secondary: "*",
     role: "number",
     code: "Digit8",
     classname: ["double"],
   },
-  Key9: {
+  Digit9: {
     main: "9",
     secondary: "(",
     role: "number",
     code: "Digit9",
     classname: ["double"],
   },
-  Key0: {
+  Digit0: {
     main: "0",
     secondary: ")",
     role: "number",
     code: "Digit0",
     classname: ["double"],
   },
-  KeyDash: {
+  Minus: {
     main: "-",
     secondary: "_",
     role: "number",
     code: "Minus",
     classname: ["double"],
   },
-  KeyPlus: {
+  Equal: {
     main: "=",
     secondary: "+",
     role: "symbol",
@@ -164,14 +164,14 @@ const english = {
     code: "KeyP",
     role: "letter",
   },
-  KeyLSqBracket: {
+  BracketLeft: {
     main: "[",
     secondary: "{",
     role: "symbol",
     code: "BracketLeft",
     classname: ["double"],
   },
-  KeyRSqBracket: {
+  BracketRight: {
     main: "]",
     secondary: "}",
     role: "symbol",
@@ -246,35 +246,35 @@ const english = {
     code: "KeyL",
     role: "letter",
   },
-  KeyColon: {
+  Semicolon: {
     main: ";",
     secondary: ":",
     role: "symbol",
     code: "Semicolon",
     classname: ["double"],
   },
-  KeyApostrophe: {
+  Quote: {
     main: "'",
     secondary: '"',
     role: "symbol",
     code: "Quote",
     classname: ["double"],
   },
-  KeyBackSlash: {
+  Backslash: {
     main: "\\",
     secondary: "|",
     role: "symbol",
     code: "Backslash",
     classname: ["double"],
   },
-  LShift: {
+  ShiftLeft: {
     main: "Shift",
     secondary: "",
     role: "functional",
     code: "ShiftLeft",
     classname: ["long", "left", "functional"],
   },
-  KeyTilda: {
+  IntlBackslash: {
     main: "\\",
     secondary: "~",
     role: "symbol",
@@ -323,56 +323,56 @@ const english = {
     code: "KeyM",
     role: "letter",
   },
-  KeyComma: {
+  Comma: {
     main: ",",
     secondary: "<",
     role: "symbol",
     code: "Comma",
     classname: ["double"],
   },
-  KeyDot: {
+  Period: {
     main: ".",
     secondary: ">",
     role: "symbol",
     code: "Period",
     classname: ["double"],
   },
-  KeySlash: {
+  Slash: {
     main: "/",
     secondary: "?",
     role: "symbol",
     code: "Slash",
     classname: ["double"],
   },
-  TopArrow: {
+  ArrowUp: {
     main: "↑",
     secondary: "",
     code: "ArrowUp",
     role: "functional",
     classname: ["arrow", "functional"],
   },
-  RShift: {
+  ShiftRight: {
     main: "Shift",
     secondary: "",
     role: "functional",
     code: "ShiftRight",
     classname: ["right", "functional"],
   },
-  Ctrl: {
+  ControlLeft: {
     main: "Ctrl",
     secondary: "",
     code: "ControlLeft",
     role: "functional",
     classname: ["functional"],
   },
-  LOption: {
+  AltLeft: {
     main: "Option",
     secondary: "",
     code: "AltLeft",
     role: "functional",
     classname: ["functional"],
   },
-  LCommand: {
+  MetaLeft: {
     main: "Cmd",
     secondary: "",
     code: "MetaLeft",
@@ -386,35 +386,35 @@ const english = {
     code: "Space",
     classname: ["long", "double"],
   },
-  RCommand: {
+  MetaRight: {
     main: "Cmd",
     secondary: "",
     code: "MetaRight",
     role: "functional",
     classname: ["functional"],
   },
-  ROption: {
+  AltRight: {
     main: "Option",
     secondary: "",
     role: "functional",
     code: "AltRight",
     classname: ["functional"],
   },
-  LeftArrow: {
+  ArrowLeft: {
     main: "←",
     secondary: "",
     role: "functional",
     code: "ArrowLeft",
     classname: ["arrow", "functional"],
   },
-  DownArrow: {
+  ArrowDown: {
     main: "↓",
     secondary: "",
     role: "functional",
     code: "ArrowDown",
     classname: ["arrow", "functional"],
   },
-  RightArrow: {
+  ArrowRight: {
     main: "→",
     secondary: "",
     role: "functional",

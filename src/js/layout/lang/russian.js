@@ -1,88 +1,88 @@
 const russian = {
-  KeyBacktick: {
+  Backquote: {
     main: "ё",
     secondary: "Ё",
     role: "letter",
     code: "Backquote",
   },
-  Key1: {
+  Digit1: {
     main: "1",
     secondary: "!",
     role: "number",
     code: "Digit1",
     classname: ["double"],
   },
-  Key2: {
+  Digit2: {
     main: "2",
     secondary: '"',
     role: "number",
     code: "Digit2",
     classname: ["double"],
   },
-  Key3: {
+  Digit3: {
     main: "3",
     secondary: "№",
     role: "number",
     code: "Digit3",
     classname: ["double"],
   },
-  Key4: {
+  Digit4: {
     main: "4",
     secondary: ";",
     role: "number",
     code: "Digit4",
     classname: ["double"],
   },
-  Key5: {
+  Digit5: {
     main: "5",
     secondary: "%",
     role: "number",
     code: "Digit5",
     classname: ["double"],
   },
-  Key6: {
+  Digit6: {
     main: "6",
     secondary: ":",
     role: "number",
     code: "Digit6",
     classname: ["double"],
   },
-  Key7: {
+  Digit7: {
     main: "7",
     secondary: "?",
     role: "number",
     code: "Digit7",
     classname: ["double"],
   },
-  Key8: {
+  Digit8: {
     main: "8",
     secondary: "*",
     role: "number",
     code: "Digit8",
     classname: ["double"],
   },
-  Key9: {
+  Digit9: {
     main: "9",
     secondary: "(",
     role: "number",
     code: "Digit9",
     classname: ["double"],
   },
-  Key0: {
+  Digit0: {
     main: "0",
     secondary: ")",
     role: "number",
     code: "Digit0",
     classname: ["double"],
   },
-  KeyDash: {
+  Minus: {
     main: "-",
     secondary: "_",
     role: "number",
     code: "Minus",
     classname: ["double"],
   },
-  KeyPlus: {
+  Equal: {
     main: "=",
     secondary: "+",
     role: "symbol",
@@ -163,13 +163,13 @@ const russian = {
     code: "KeyP",
     role: "letter",
   },
-  KeyLSqBracket: {
+  BracketLeft: {
     main: "х",
     secondary: "Х",
     code: "BracketLeft",
     role: "letter",
   },
-  KeyRSqBracket: {
+  BracketRight: {
     main: "ъ",
     secondary: "Ъ",
     code: "BracketRight",
@@ -243,33 +243,33 @@ const russian = {
     code: "KeyL",
     role: "letter",
   },
-  KeyColon: {
+  Semicolon: {
     main: "ж",
     secondary: "Ж",
     code: "Semicolon",
     role: "letter",
   },
-  KeyApostrophe: {
+  Quote: {
     main: "э",
     secondary: "Э",
     code: "Quote",
     role: "letter",
   },
-  KeyBackSlash: {
+  Backslash: {
     main: "\\",
     secondary: "/",
     role: "symbol",
     code: "Backslash",
     classname: ["double"],
   },
-  LShift: {
+  ShiftLeft: {
     main: "Shift",
     secondary: "",
     role: "functional",
     code: "ShiftLeft",
     classname: ["long", "left", "functional"],
   },
-  KeyTilda: {
+  IntlBackslash: {
     main: "ё",
     secondary: "Ё",
     code: "IntlBackslash",
@@ -317,54 +317,54 @@ const russian = {
     code: "KeyM",
     role: "letter",
   },
-  KeyComma: {
+  Comma: {
     main: "б",
     secondary: "Б",
     code: "Comma",
     role: "letter",
   },
-  KeyDot: {
+  Period: {
     main: "ю",
     secondary: "Ю",
     code: "Period",
     role: "letter",
   },
-  KeySlash: {
+  Slash: {
     main: ".",
     secondary: ",",
     role: "symbol",
     code: "Slash",
     classname: ["double"],
   },
-  TopArrow: {
+  ArrowUp: {
     main: "↑",
     secondary: "",
     code: "ArrowUp",
     role: "functional",
     classname: ["arrow", "functional"],
   },
-  RShift: {
+  ShiftRight: {
     main: "Shift",
     secondary: "",
     role: "functional",
     code: "ShiftRight",
     classname: ["right", "functional"],
   },
-  Ctrl: {
+  ControlLeft: {
     main: "Ctrl",
     secondary: "",
     role: "functional",
     code: "ControlLeft",
     classname: ["functional"],
   },
-  LOption: {
+  AltLeft: {
     main: "Option",
     secondary: "",
     role: "functional",
     code: "AltLeft",
     classname: ["functional"],
   },
-  LCommand: {
+  MetaLeft: {
     main: "Cmd",
     secondary: "",
     role: "functional",
@@ -378,35 +378,35 @@ const russian = {
     code: "Space",
     classname: ["long", "double"],
   },
-  RCommand: {
+  MetaRight: {
     main: "Cmd",
     secondary: "",
     role: "functional",
     code: "MetaRight",
     classname: ["functional"],
   },
-  ROption: {
+  AltRight: {
     main: "Option",
     secondary: "",
     role: "functional",
     code: "AltRight",
     classname: ["functional"],
   },
-  LeftArrow: {
+  ArrowLeft: {
     main: "←",
     secondary: "",
     role: "functional",
     code: "ArrowLeft",
     classname: ["arrow", "functional"],
   },
-  DownArrow: {
+  ArrowDown: {
     main: "↓",
     secondary: "",
     role: "functional",
     code: "ArrowDown",
     classname: ["arrow", "functional"],
   },
-  RightArrow: {
+  ArrowRight: {
     main: "→",
     secondary: "",
     role: "functional",

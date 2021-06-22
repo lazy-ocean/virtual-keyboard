@@ -1,6 +1,5 @@
 import generateLayout from "./layout/layout";
-
-const pressed = [];
+import options from "./layout/lang/options";
 
 const renderKey = (keyName, code, keyClasses, keySecondary) => {
   const key = document.createElement("div");
@@ -17,6 +16,12 @@ const renderKey = (keyName, code, keyClasses, keySecondary) => {
   return key;
 };
 
+const STATE = {
+  language: "russian",
+  capslock: false,
+  shift: false,
+};
+
 // testing purposes
 const render = () => {
   const header = document.createElement("h1");
@@ -25,16 +30,13 @@ const render = () => {
 
   const textbox = document.createElement("textarea");
   textbox.classList.add("textbox");
-  const placeholder = document.createElement("p");
-  placeholder.classList.add("textbox--placeholder");
-  placeholder.innerHTML = "Try typing something!";
-  textbox.appendChild(placeholder);
+  textbox.placeholder = "Try typing something";
   document.body.appendChild(textbox);
 
   const keyboard = document.createElement("div");
   keyboard.classList.add("keyboard");
   document.body.appendChild(keyboard);
-  const layout = generateLayout("russian");
+  const layout = generateLayout(STATE.language);
   layout.map((line) => {
     const keyboardLine = document.createElement("div");
     keyboardLine.classList.add("line");
@@ -50,6 +52,14 @@ const render = () => {
     "keydown",
     (event) => {
       const { code } = event;
+      if (code === "CapsLock")
+        // eslint-disable-next-line no-unused-expressions
+        STATE.capslock === true ? (STATE.capslock = false) : (STATE.capslock = true);
+      if (code === "ShiftLeft" || code === "ShiftRight") STATE.shift = true;
+      const { secondary, main, role } = options[STATE.language][code];
+      if (role !== "functional") {
+        textbox.innerHTML += STATE.shift ? secondary : main;
+      }
       const active = document.getElementById(code);
       active.classList.add("active");
     },
@@ -59,6 +69,7 @@ const render = () => {
     "keyup",
     (event) => {
       const { code } = event;
+      if (code === "ShiftLeft" || code === "ShiftRight") STATE.shift = false;
       const active = document.getElementById(code);
       active.classList.remove("active");
     },
