@@ -23,4 +23,16 @@ html {
 body {
   margin: 0 auto;
   max-width: 1800px;
+  height: 100vh;
+  background: linear-gradient(to right, #fff8ee, #ddefbb);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 5rem;
+  text-align: right;
+  padding-bottom: 3rem;
 }

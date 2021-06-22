@@ -16,6 +16,10 @@ const renderKey = (keyName, keyClasses, keySecondary) => {
 
 // testing purposes
 const render = () => {
+  const header = document.createElement("h1");
+  header.innerHTML = "Mac Virtual Keyboard";
+  document.body.appendChild(header);
+
   const keyboard = document.createElement("div");
   keyboard.classList.add("keyboard");
   document.body.appendChild(keyboard);
