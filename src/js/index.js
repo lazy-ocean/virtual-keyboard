@@ -1,9 +1,8 @@
 import generateLayout from "./layout/layout";
 
-const renderKey = (keyName, keyClasses, keySecondary, role) => {
+const renderKey = (keyName, keyClasses, keySecondary) => {
   const key = document.createElement("div");
   const secondarySymbol = document.createElement("span");
-  if (role === "symbol" || role === "number") key.classList.add("double");
   if (keySecondary) {
     secondarySymbol.innerHTML = keySecondary;
     secondarySymbol.classList.add("secondary");
@@ -27,7 +26,7 @@ const render = () => {
     line.map(({ main, classname, secondary, role }) =>
       role === "letter"
         ? keyboardLine.appendChild(renderKey(secondary))
-        : keyboardLine.appendChild(renderKey(main, classname, secondary, role))
+        : keyboardLine.appendChild(renderKey(main, classname, secondary))
     );
     return keyboard.appendChild(keyboardLine);
   });

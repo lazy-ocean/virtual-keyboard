@@ -1,3 +1,13 @@
+:root {
+  --color-green-dark: #2f754f;
+  --color-green-md: #74a202;
+  --color-green-light: #7cb518;
+  --color-yellow: #f3de2c;
+  --color-white: #fff5d6;
+  --color-font-main: #140f00;
+  --font: "Montserrat", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +16,8 @@
 
 html {
   font-size: 62.5%;
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font);
+  color: var(--color-font-main);
 }
 
 body {
