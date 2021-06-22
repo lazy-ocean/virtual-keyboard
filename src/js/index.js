@@ -1,10 +1,17 @@
 import generateLayout from "./layout/layout";
 
-const renderKey = (keyName, long) => {
+const renderKey = (keyName, keyClasses, keySecondary, role) => {
   const key = document.createElement("div");
+  const secondarySymbol = document.createElement("span");
+  if (role === "symbol" || role === "number") key.classList.add("double");
+  if (keySecondary) {
+    secondarySymbol.innerHTML = keySecondary;
+    secondarySymbol.classList.add("secondary");
+  }
   key.innerHTML = keyName;
+  key.appendChild(secondarySymbol);
   key.classList.add("key");
-  if (long) key.classList.add("long");
+  if (keyClasses) keyClasses.forEach((keyClass) => key.classList.add(keyClass));
   return key;
 };
 
@@ -13,14 +20,14 @@ const render = () => {
   const keyboard = document.createElement("div");
   keyboard.classList.add("keyboard");
   document.body.appendChild(keyboard);
-  const layout = generateLayout("english");
+  const layout = generateLayout("russian");
   layout.map((line) => {
     const keyboardLine = document.createElement("div");
     keyboardLine.classList.add("line");
-    line.map((key) =>
-      key.role === "letter"
-        ? keyboardLine.appendChild(renderKey(key.secondary))
-        : keyboardLine.appendChild(renderKey(key.main, key.long))
+    line.map(({ main, classname, secondary, role }) =>
+      role === "letter"
+        ? keyboardLine.appendChild(renderKey(secondary))
+        : keyboardLine.appendChild(renderKey(main, classname, secondary, role))
     );
     return keyboard.appendChild(keyboardLine);
   });

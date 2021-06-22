@@ -31,7 +31,7 @@ const english = {
   },
   Key6: {
     main: "6",
-    secondary: "&",
+    secondary: "^",
     role: "number",
   },
   Key7: {
@@ -68,13 +68,13 @@ const english = {
     main: "←",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "right"],
   },
   Tab: {
     main: "Tab",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "left"],
   },
   KeyQ: {
     main: "q",
@@ -140,13 +140,13 @@ const english = {
     main: "⏎",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "right"],
   },
   CapsLock: {
     main: "CapsLock",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "left"],
   },
   KeyA: {
     main: "a",
@@ -212,7 +212,7 @@ const english = {
     main: "Shift",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "left"],
   },
   KeyTilda: {
     main: "\\",
@@ -278,7 +278,7 @@ const english = {
     main: "Shift",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["right"],
   },
   Ctrl: {
     main: "Ctrl",
@@ -291,7 +291,7 @@ const english = {
     role: "functional",
   },
   LCommand: {
-    main: "Command",
+    main: "Cmd",
     secondary: "",
     role: "functional",
   },
@@ -299,10 +299,10 @@ const english = {
     main: "&nbsp;",
     secondary: "",
     role: "symbol",
-    long: true,
+    classname: ["long"],
   },
   RCommand: {
-    main: "Command",
+    main: "Cmd",
     secondary: "",
     role: "functional",
   },

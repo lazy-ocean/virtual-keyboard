@@ -68,13 +68,13 @@ const russian = {
     main: "←",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "right"],
   },
   Tab: {
     main: "Tab",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "left"],
   },
   KeyQ: {
     main: "й",
@@ -140,13 +140,13 @@ const russian = {
     main: "⏎",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "right"],
   },
   CapsLock: {
     main: "CapsLock",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "left"],
   },
   KeyA: {
     main: "ф",
@@ -212,7 +212,7 @@ const russian = {
     main: "Shift",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["long", "left"],
   },
   KeyTilda: {
     main: "ё",
@@ -278,7 +278,7 @@ const russian = {
     main: "Shift",
     secondary: "",
     role: "functional",
-    long: true,
+    classname: ["right"],
   },
   Ctrl: {
     main: "Ctrl",
@@ -291,7 +291,7 @@ const russian = {
     role: "functional",
   },
   LCommand: {
-    main: "Command",
+    main: "Cmd",
     secondary: "",
     role: "functional",
   },
@@ -299,10 +299,10 @@ const russian = {
     main: "&nbsp;",
     secondary: "",
     role: "symbol",
-    long: true,
+    classname: ["long"],
   },
   RCommand: {
-    main: "Command",
+    main: "Cmd",
     secondary: "",
     role: "functional",
   },
