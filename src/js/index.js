@@ -20,6 +20,14 @@ const render = () => {
   header.innerHTML = "Mac Virtual Keyboard";
   document.body.appendChild(header);
 
+  const textbox = document.createElement("textarea");
+  textbox.classList.add("textbox");
+  const placeholder = document.createElement("p");
+  placeholder.classList.add("textbox--placeholder");
+  placeholder.innerHTML = "Try typing something!";
+  textbox.appendChild(placeholder);
+  document.body.appendChild(textbox);
+
   const keyboard = document.createElement("div");
   keyboard.classList.add("keyboard");
   document.body.appendChild(keyboard);

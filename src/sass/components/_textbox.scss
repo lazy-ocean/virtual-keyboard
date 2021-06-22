@@ -1,0 +1,12 @@
+.textbox {
+  display: block;
+  background-color: var(--color-white);
+  width: 104rem;
+  height: 30rem;
+  border-radius: var(--border-radius);
+  border: none;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-main);
+  padding: 2rem;
+  font-size: 1.6rem;
+}
