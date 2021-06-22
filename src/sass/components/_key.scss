@@ -12,7 +12,7 @@
   transition: all 0.2s;
 
   &:active {
-    transform: translate(0.1rem, 0.1rem);
+    transform: translate(0.15rem, 0.15rem);
     box-shadow: rgba(50, 50, 93, 0.6) 0px 2px 5px -1px, rgba(0, 0, 0, 0.6) 0px 1px 3px -1px;
   }
 }
@@ -47,4 +47,9 @@
 .arrow {
   font-size: 3rem;
   padding: 1rem;
+}
+
+.active {
+  transform: translate(0.15rem, 0.15rem);
+  box-shadow: rgba(50, 50, 93, 0.6) 0px 2px 5px -1px, rgba(0, 0, 0, 0.6) 0px 1px 3px -1px;
 }

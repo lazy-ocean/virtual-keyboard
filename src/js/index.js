@@ -1,6 +1,8 @@
 import generateLayout from "./layout/layout";
 
-const renderKey = (keyName, keyClasses, keySecondary) => {
+const pressed = [];
+
+const renderKey = (keyName, code, keyClasses, keySecondary) => {
   const key = document.createElement("div");
   const secondarySymbol = document.createElement("span");
   if (keySecondary) {
@@ -10,6 +12,7 @@ const renderKey = (keyName, keyClasses, keySecondary) => {
   key.innerHTML = keyName;
   key.appendChild(secondarySymbol);
   key.classList.add("key");
+  key.id = code;
   if (keyClasses) keyClasses.forEach((keyClass) => key.classList.add(keyClass));
   return key;
 };
@@ -35,13 +38,32 @@ const render = () => {
   layout.map((line) => {
     const keyboardLine = document.createElement("div");
     keyboardLine.classList.add("line");
-    line.map(({ main, classname, secondary, role }) =>
+    line.map(({ main, classname, secondary, role, code }) =>
       role === "letter"
-        ? keyboardLine.appendChild(renderKey(secondary))
-        : keyboardLine.appendChild(renderKey(main, classname, secondary))
+        ? keyboardLine.appendChild(renderKey(secondary, code))
+        : keyboardLine.appendChild(renderKey(main, code, classname, secondary))
     );
     return keyboard.appendChild(keyboardLine);
   });
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      const { code } = event;
+      const active = document.getElementById(code);
+      active.classList.add("active");
+    },
+    false
+  );
+  document.addEventListener(
+    "keyup",
+    (event) => {
+      const { code } = event;
+      const active = document.getElementById(code);
+      active.classList.remove("active");
+    },
+    false
+  );
 };
 
 render();
