@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import generateLayout from "./layout/layout";
 import options from "./layout/lang/options";
 
@@ -20,6 +21,9 @@ const STATE = {
   language: "russian",
   capslock: false,
   shift: false,
+  lines: 1,
+  cursor: 0,
+  linelength: 110,
 };
 
 // testing purposes
@@ -51,15 +55,12 @@ const render = () => {
   document.addEventListener(
     "keydown",
     (event) => {
+      event.preventDefault();
       const { code } = event;
+      textbox.focus();
       if (code === "CapsLock")
-        // eslint-disable-next-line no-unused-expressions
         STATE.capslock === true ? (STATE.capslock = false) : (STATE.capslock = true);
       if (code === "ShiftLeft" || code === "ShiftRight") STATE.shift = true;
-      const { secondary, main, role } = options[STATE.language][code];
-      if (role !== "functional") {
-        textbox.innerHTML += STATE.shift ? secondary : main;
-      }
       const active = document.getElementById(code);
       active.classList.add("active");
     },
@@ -69,7 +70,41 @@ const render = () => {
     "keyup",
     (event) => {
       const { code } = event;
+      const { secondary, main, role } = options[STATE.language][code];
+      if (role !== "functional") {
+        STATE.cursor += 1;
+        // Workaround for manual line breaks for managing up and down arrow controls
+        // TODO: find a simple way to learn how long every line is. cols attribute is not really working
+        if (STATE.cursor % STATE.linelength === 0) {
+          textbox.innerHTML += "\r";
+          STATE.lines += 1;
+          STATE.cursor += 1;
+        }
+        textbox.innerHTML += STATE.shift ? secondary : main;
+      } else {
+        switch (code) {
+          case "ArrowRight":
+            STATE.cursor + 1 > textbox.innerHTML.length
+              ? (STATE.cursor = textbox.innerHTML.length)
+              : (STATE.cursor += 1);
+            break;
+          case "ArrowLeft":
+            STATE.cursor > 0 ? (STATE.cursor -= 1) : (STATE.cursor = 0);
+            break;
+          case "ArrowUp":
+            STATE.cursor -= STATE.linelength;
+            break;
+          case "ArrowDown":
+            STATE.cursor + STATE.linelength > textbox.innerHTML.length
+              ? (STATE.cursor = textbox.innerHTML.length)
+              : (STATE.cursor += STATE.linelength);
+            break;
+          default:
+            break;
+        }
+      }
       if (code === "ShiftLeft" || code === "ShiftRight") STATE.shift = false;
+      textbox.setSelectionRange(STATE.cursor, STATE.cursor);
       const active = document.getElementById(code);
       active.classList.remove("active");
     },
