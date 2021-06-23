@@ -58,8 +58,7 @@ const render = () => {
       event.preventDefault();
       const { code } = event;
       textbox.focus();
-      if (code === "CapsLock")
-        STATE.capslock === true ? (STATE.capslock = false) : (STATE.capslock = true);
+      if (code === "CapsLock") STATE.capslock = true;
       if (code === "ShiftLeft" || code === "ShiftRight") STATE.shift = true;
       const active = document.getElementById(code);
       active.classList.add("active");
@@ -80,7 +79,7 @@ const render = () => {
           STATE.lines += 1;
           STATE.cursor += 1;
         }
-        textbox.innerHTML += STATE.shift ? secondary : main;
+        textbox.innerHTML += STATE.shift || STATE.capslock ? secondary : main;
       } else {
         switch (code) {
           case "ArrowRight":
@@ -99,11 +98,17 @@ const render = () => {
               ? (STATE.cursor = textbox.innerHTML.length)
               : (STATE.cursor += STATE.linelength);
             break;
+          case "CapsLock":
+            STATE.capslock = false;
+            break;
+          case "ShiftLeft":
+          case "ShiftRight":
+            STATE.shift = false;
+            break;
           default:
             break;
         }
       }
-      if (code === "ShiftLeft" || code === "ShiftRight") STATE.shift = false;
       textbox.setSelectionRange(STATE.cursor, STATE.cursor);
       const active = document.getElementById(code);
       active.classList.remove("active");
