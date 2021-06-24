@@ -8,12 +8,15 @@
   border: 1px solid grey;
   position: relative;
   background-color: var(--color-white);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   transition: all 0.2s;
 
   &:active {
     transform: translate(0.15rem, 0.15rem);
-    box-shadow: rgba(50, 50, 93, 0.6) 0px 2px 5px -1px, rgba(0, 0, 0, 0.6) 0px 1px 3px -1px;
+    filter: brightness(90%);
+    box-shadow: rgba(50, 50, 93, 0.6) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.6) 0px 1px 3px -1px;
   }
 }
 
@@ -51,5 +54,7 @@
 
 .active {
   transform: translate(0.15rem, 0.15rem);
-  box-shadow: rgba(50, 50, 93, 0.6) 0px 2px 5px -1px, rgba(0, 0, 0, 0.6) 0px 1px 3px -1px;
+  filter: brightness(90%);
+  box-shadow: rgba(50, 50, 93, 0.6) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.6) 0px 1px 3px -1px;
 }
