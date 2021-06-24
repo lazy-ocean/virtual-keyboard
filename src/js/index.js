@@ -1,7 +1,18 @@
-/* eslint-disable no-case-declarations */
-/* eslint-disable no-unused-expressions */
 import generateLayout from "./layout/layout";
 import options from "./layout/lang/options";
+
+const STATE = {
+  language: localStorage.getItem("language")
+    ? localStorage.getItem("language")
+    : "english",
+  capslock: false,
+  shift: false,
+  cmd: false,
+  alt: false,
+  lines: 1,
+  cursor: 0,
+  linelengthlimit: 110,
+};
 
 const renderKey = (keyName, code, keyClasses, keySecondary) => {
   const key = document.createElement("div");
@@ -18,26 +29,9 @@ const renderKey = (keyName, code, keyClasses, keySecondary) => {
   return key;
 };
 
-const STATE = {
-  language: "russian",
-  capslock: false,
-  shift: false,
-  lines: 1,
-  cursor: 0,
-  linelengthlimit: 110,
-};
-
-// testing purposes
-const render = () => {
-  const header = document.createElement("h1");
-  header.innerHTML = "Mac Virtual Keyboard";
-  document.body.appendChild(header);
-
-  const textbox = document.createElement("textarea");
-  textbox.classList.add("textbox");
-  textbox.placeholder = "Try typing something";
-  document.body.appendChild(textbox);
-
+const renderKeyboard = () => {
+  if (document.querySelector(".keyboard"))
+    document.querySelector(".keyboard").remove();
   const keyboard = document.createElement("div");
   keyboard.classList.add("keyboard");
   document.body.appendChild(keyboard);
@@ -52,6 +46,23 @@ const render = () => {
     );
     return keyboard.appendChild(keyboardLine);
   });
+};
+
+// testing purposes
+const renderPageElements = () => {
+  const header = document.createElement("h1");
+  header.innerHTML = "Mac Virtual Keyboard";
+  document.body.appendChild(header);
+
+  const info = document.createElement("p");
+  info.innerHTML = "Click <i>Option + Cmd</i> to change language";
+  info.classList.add("info");
+  document.body.appendChild(info);
+
+  const textbox = document.createElement("textarea");
+  textbox.classList.add("textbox");
+  textbox.placeholder = "Try typing something";
+  document.body.appendChild(textbox);
 
   document.addEventListener(
     "keydown",
@@ -59,8 +70,32 @@ const render = () => {
       event.preventDefault();
       const { code } = event;
       textbox.focus();
-      if (code === "CapsLock") STATE.capslock = true;
-      if (code === "ShiftLeft" || code === "ShiftRight") STATE.shift = true;
+      switch (code) {
+        case "CapsLock":
+          STATE.capslock = true;
+          break;
+        case "ShiftLeft":
+        case "ShiftRight":
+          STATE.shift = true;
+          break;
+        case "MetaLeft":
+        case "MetaRight":
+          STATE.cmd = true;
+          break;
+        case "AltLeft":
+        case "AltRight":
+          STATE.alt = true;
+          break;
+        default:
+          break;
+      }
+      if (STATE.alt === true && STATE.cmd === true) {
+        STATE.language = STATE.language === "english" ? "russian" : "english";
+        STATE.alt = false;
+        STATE.cmd = false;
+        localStorage.setItem("language", STATE.language);
+        renderKeyboard();
+      }
       const active = document.getElementById(code);
       active.classList.add("active");
     },
@@ -76,7 +111,7 @@ const render = () => {
       if (role !== "functional") {
         STATE.cursor += 1;
         // Workaround for manual line breaks for managing up and down arrow controls
-        // TODO: find a simple way to learn how long every line is. cols attribute on textbox is not really working
+        // TODO: find a simple way to know how long every line is. cols attribute on textbox is not really working
         if (STATE.cursor % STATE.linelengthlimit === 0) {
           textbox.innerHTML += "\r";
           STATE.lines += 1;
@@ -128,6 +163,7 @@ const render = () => {
             STATE.shift = false;
             break;
           case "Backspace":
+            console.log(textbox.innerHTML.slice(0, -1));
             textbox.innerHTML = textbox.innerHTML.slice(0, -1);
             break;
           case "Enter":
@@ -147,4 +183,5 @@ const render = () => {
   );
 };
 
-render();
+renderPageElements();
+renderKeyboard();

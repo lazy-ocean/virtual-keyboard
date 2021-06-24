@@ -7,8 +7,8 @@
   --color-font-main: #140f00;
   --font: "Montserrat", sans-serif;
   --border-radius: 10px;
-  --shadow-main: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px,
-    rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  --shadow-main: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 
 * {
@@ -38,4 +38,9 @@ h1 {
   font-size: 5rem;
   text-align: right;
   padding-bottom: 3rem;
+}
+
+.info {
+  font-size: 1.6rem;
+  margin: 1rem 1rem 3rem;
 }
