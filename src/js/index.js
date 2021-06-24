@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable no-unused-expressions */
 import generateLayout from "./layout/layout";
 import options from "./layout/lang/options";
@@ -23,7 +24,7 @@ const STATE = {
   shift: false,
   lines: 1,
   cursor: 0,
-  linelength: 110,
+  linelengthlimit: 110,
 };
 
 // testing purposes
@@ -70,17 +71,24 @@ const render = () => {
     (event) => {
       const { code } = event;
       const { secondary, main, role } = options[STATE.language][code];
+      const stringStart = textbox.value.slice(0, STATE.cursor);
+      const stringEnd = textbox.value.slice(STATE.cursor, textbox.value.length);
       if (role !== "functional") {
         STATE.cursor += 1;
         // Workaround for manual line breaks for managing up and down arrow controls
-        // TODO: find a simple way to learn how long every line is. cols attribute is not really working
-        if (STATE.cursor % STATE.linelength === 0) {
+        // TODO: find a simple way to learn how long every line is. cols attribute on textbox is not really working
+        if (STATE.cursor % STATE.linelengthlimit === 0) {
           textbox.innerHTML += "\r";
           STATE.lines += 1;
           STATE.cursor += 1;
         }
-        textbox.innerHTML += STATE.shift || STATE.capslock ? secondary : main;
+        textbox.innerHTML =
+          STATE.shift || STATE.capslock
+            ? `${stringStart}${secondary}${stringEnd}`
+            : `${stringStart}${main}${stringEnd}`;
       } else {
+        const lines = textbox.innerHTML.split(/\r?\n|\r/g);
+        const currentLine = lines[STATE.lines - 1].length;
         switch (code) {
           case "ArrowRight":
             STATE.cursor + 1 > textbox.innerHTML.length
@@ -91,19 +99,41 @@ const render = () => {
             STATE.cursor > 0 ? (STATE.cursor -= 1) : (STATE.cursor = 0);
             break;
           case "ArrowUp":
-            STATE.cursor -= STATE.linelength;
+            if (lines[STATE.lines - 2]) {
+              STATE.cursor =
+                currentLine > lines[STATE.lines - 2].length
+                  ? STATE.cursor - currentLine - 1
+                  : STATE.cursor - lines[STATE.lines - 2].length - 1;
+              STATE.lines -= 1;
+            }
             break;
           case "ArrowDown":
-            STATE.cursor + STATE.linelength > textbox.innerHTML.length
-              ? (STATE.cursor = textbox.innerHTML.length)
-              : (STATE.cursor += STATE.linelength);
+            if (lines[STATE.lines]) {
+              STATE.cursor =
+                currentLine > lines[STATE.lines].length
+                  ? STATE.cursor + currentLine + 1
+                  : STATE.cursor + lines[STATE.lines].length + 1;
+              STATE.lines += 1;
+            }
             break;
           case "CapsLock":
             STATE.capslock = false;
             break;
+          case "Tab":
+            textbox.innerHTML = `${stringStart}\t${stringEnd}`;
+            STATE.cursor += 1;
+            break;
           case "ShiftLeft":
           case "ShiftRight":
             STATE.shift = false;
+            break;
+          case "Backspace":
+            textbox.innerHTML = textbox.innerHTML.slice(0, -1);
+            break;
+          case "Enter":
+            textbox.innerHTML = `${stringStart}\r${stringEnd}`;
+            STATE.lines += 1;
+            STATE.cursor += 1;
             break;
           default:
             break;

@@ -373,7 +373,7 @@ const russian = {
   },
   Space: {
     main: "&nbsp;",
-    secondary: "",
+    secondary: "&nbsp;",
     role: "symbol",
     code: "Space",
     classname: ["long", "double"],
