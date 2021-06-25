@@ -1,0 +1,16 @@
+.keyboard {
+  margin: 0 auto;
+  background-color: var(--color-green-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 110rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-main);
+}
+
+.line {
+  display: flex;
+  width: 100%;
+}
