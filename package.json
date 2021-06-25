@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp build",
     "start": "gulp start",
-    "stylelint": "npx stylelint \"**/*.css\"",
+    "lint": "eslint \"src/js/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
